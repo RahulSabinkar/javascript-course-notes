@@ -1,34 +1,34 @@
-# JavaScript Notes
+# JavaScript Notes <!-- omit in toc -->
 
----
+## Table Of Contents <!-- omit in toc -->
 
-## Table Of Contents
-
-- [JavaScript Notes](#javascript-notes)
-  - [Table Of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-    - [What can you do with JavaScript?](#what-can-you-do-with-javascript)
-    - [Where does JavaScript code run?](#where-does-javascript-code-run)
-    - [JavaScript vs ECMAScript](#javascript-vs-ecmascript)
-  - [Basics](#basics)
-    - [Variables](#variables)
-    - [Constants](#constants)
-    - [console.log()](#consolelog)
-    - [Primitive/Value Types](#primitivevalue-types)
-    - [Reference Types](#reference-types)
-      - [Objects](#objects)
-      - [Arrays](#arrays)
-      - [Functions](#functions)
-  - [Operators](#operators)
-    - [Arithmetic Operators](#arithmetic-operators)
-    - [Assignment Operators](#assignment-operators)
-    - [Comparison Operators](#comparison-operators)
+- [Introduction](#introduction)
+  - [What can you do with JavaScript?](#what-can-you-do-with-javascript)
+  - [Where does JavaScript code run?](#where-does-javascript-code-run)
+  - [JavaScript vs ECMAScript](#javascript-vs-ecmascript)
+- [Basics](#basics)
+  - [Variables](#variables)
+  - [Constants](#constants)
+  - [console.log()](#consolelog)
+  - [Primitive/Value Types](#primitivevalue-types)
+  - [Reference Types](#reference-types)
+    - [Objects](#objects)
+    - [Arrays](#arrays)
+    - [Functions](#functions)
+- [Operators](#operators)
+  - [Arithmetic Operators](#arithmetic-operators)
+  - [Assignment Operators](#assignment-operators)
+  - [Comparison Operators](#comparison-operators)
+  - [Ternary Operator](#ternary-operator)
+  - [Logical Operators](#logical-operators)
     - [Logical Operator with non-boolean values](#logical-operator-with-non-boolean-values)
-      - [Short-circuiting](#short-circuiting)
-    - [Bitwise Operators](#bitwise-operators)
-  - [Control Flow](#control-flow)
-    - [Conditional Statements](#conditional-statements)
-    - [Loops Statements](#loops-statements)
+    - [Short-circuiting](#short-circuiting)
+  - [Bitwise Operators](#bitwise-operators)
+  - [Operator Precedence](#operator-precedence)
+  - [Associativity of Operators](#associativity-of-operators)
+- [Control Flow](#control-flow)
+  - [Conditional Statements](#conditional-statements)
+  - [Loops Statements](#loops-statements)
 
 ---
 
@@ -36,27 +36,27 @@
 
 ### What can you do with JavaScript?
 
-For a long time, JavaScript was only used in Browsers to build interactive web pages. Some developers refered to JavaScript as a toy language. But those days are gone because of huge community support, and investments like large companies by Facebook and Google. These days you can build:
+For a long time, JavaScript was only used in Browsers to build interactive web pages. Some developers refered to JavaScript as a toy language. But those days are gone because of huge community support, and investments by large companies like Facebook and Google. These days you can build:
 
-- web/mobile Apps
-- real-time networking apps
-  - like chats, video-streaming services
-- command-line tools
-- games
+- Web/Mobile Apps
+- Real-time Networking Apps
+  - like chats, video-streaming services, etc
+- Command-Line Tools
+- Games
 
 ### Where does JavaScript code run?
 
-JavaScript was originally designed to run only in Browsers. So every browser has a _JavaScript Engine_ that can execute JavaScript code.
+JavaScript was originally designed to run only in Browsers. So every browser has a **JavaScript Engine** that can execute JavaScript code.
 
 JavaScript Engines follow the ECMAScript Standards. These standards define how the JavaScript engine should work and what features it should have.
 
-JavaScript Engines for different Browsers are:
+JavaScript Engines for some different Browsers are:
 
 - Firefox: Spidermonkey
 - Chrome: v8
 - Microsoft Edge: Chakra (older version)
 
-In 2009, Ryan Dahl took the open-source JavaScript Engine in Chrome and embedded it inside a C++ program called Node.
+In 2009, Ryan Dahl took the open-source JavaScript Engine in Chrome and embedded it inside a C++ program called **Node**.
 
 Definition from Wiki:
 
@@ -123,16 +123,16 @@ console.log('Sum: ' + answer); // With concantation
 
 In the category of Primitive types we have:
 
-- string
-  - there are no characters, only strings.
-- number
-  - no integers or floating points, all are numbers.
-- boolean
-  - true or false.
-- undefined
-  - declared but un-initialised variable.
-- null
-  - used to explicitly clear variable.
+1. string
+   - there are no characters, only strings.
+2. number
+   - no integers or floating points, all are numbers.
+3. boolean
+   - true or false.
+4. undefined
+   - declared but un-initialised variable.
+5. null
+   - used to explicitly clear variable.
 
 `typeof` is an operator that is used to get the type of a variable.
 
@@ -141,11 +141,11 @@ let name = 'Rahul';        // String Literal
 let age = 23;              // Number Literal
 let isApproved = false;    // Boolean Literal
 let occupation;            // Undefined Variable
-let selectedCourse = null; // Clear Variable
+let selectedCourse = null; // Clearing the Variable
 typeof name;               // Outputs Type of Variable
 ```
 
-Unlike other programming languages, there are no two kinds of numbers like integers and floating points. All numbers come under the type of _number_.
+Unlike other programming languages, there are no two kinds of numbers like integers and floating points. All numbers come under the type of **number**.
 
 ---
 
@@ -205,7 +205,7 @@ let selection = 'name';
 person[selection] = 'Mary';
 ```
 
-With the code above, we can access that property using the Bracket Notation in a _Dynamic_ way.
+With the code above, we can access that property using the Bracket Notation in a **Dynamic** way.
 
 ---
 
@@ -227,7 +227,7 @@ We can access those elements inside of an array using those index values.
 console.log(selectedColors[0]) // Shows output as 'red'
 ```
 
-Javascript is a dynamic language and the length of an array as well as the type of objects we have in our array are dynamic i.e. can be changed at run-time.
+JavaScript is a dynamic language and the length of an array as well as the type of objects we have in our array are dynamic i.e. can be changed at run-time.
 
 ```
 // Adds object 'green' to the array
@@ -266,13 +266,13 @@ let name = 'World';
 greet(name); // Function calling with argument 'name'
 ```
 
-When we declare a function, we can take one or any number of variables as input which are called _parameters_.
+When we declare a function, we can take one or any number of variables as input which are called **parameters**.
 
 These parameters are local variables that are only active or usable inside that specific function block. In other words, the scope of these parameters are limited to inside the function.
 
-When we call a function, we can pass along one or any number of variables which are called _arguments_.
+When we call a function, we can pass along one or any number of variables which are called **arguments**.
 
-The above function was used to _perform a task_. We can also write a function to _calculate a value_ and returns a variable.
+The above function was used to _perform a task_. We can also write a function to _calculate a value_ and return a variable.
 
 ```
 // Calculating the value and returning the answer
@@ -288,9 +288,9 @@ console.log(square(2));
 
 ## Operators
 
-In Javascript, we have different kinds of Operators. We can use these operators along with our variables and constants to create _expressions_. And with these _expressions_, we can implement _logic_ and _algorithms_.
+In JavaScript, we have different kinds of Operators. We can use these operators along with our variables and constants to create **expressions**. And with these _expressions_, we can implement _logic_ and _algorithms_.
 
-Here are the different types of Operators in Javascript:
+Here are the different types of Operators in JavaScript:
 
 1. Arithmetic
 2. Assignments
@@ -378,7 +378,16 @@ console.log(a > b);   // true
 console.log(a >= b);  // true
 console.log(a < b);   // false
 console.log(a <= b);  // false
+```
 
+In JavaScript, there are two Equality Operators. They are:
+
+1. Strict Equality Operator
+   - checks both values and types of the operands.
+2. Loose Equality Operator
+   - checks only the values of the operands.
+
+```
 // Strict Equality Operators
 // Checks both value and type of operands
 console.log(1 === 1);   // true
@@ -394,7 +403,58 @@ console.log('1' != 1);  // false
 
 ---
 
-### Logical Operator with non-boolean values
+### Ternary Operator
+
+A ternary operator evaluates a condition and executes a block of code based on the condition.
+
+It's syntax is:
+
+```
+condition ? exprIfTrue : exprIfFalse
+```
+
+The ternary operator evaluates the test condition.
+
+- If the condition is `true`, `exprIfTrue` is executed.
+- If the condition is `false`, `exprIfFalse` is executed.
+
+The ternary operator takes **three operands**, hence, the name ternary operator. It is also known as a conditional operator.
+
+A ternary operator is frequently used as an alternative to an `if...else` statement in certain situations.
+
+For example,
+
+```
+let studentMarks = 70;
+let evaluation = studentMarks > 60 ? 'pass' : 'fail';
+console.log(evaluation); // pass
+```
+
+---
+
+### Logical Operators
+
+Logical operators perform logical operations and return a boolean value, either true or false.
+
+There are three Logical Operators in JavaScript, they are:
+
+1. Logical AND
+   - returns `true` only if both operands are `true`.
+2. Logical OR
+   - returns `true` if any operands are `true`.
+3. Logical NOT
+   - returns `true` if the operand is `false` and vice versa
+
+```
+const x = 5;
+const y = 3;
+
+const logicalAnd = (x < 6) && (y < 6); // false
+const logicalOr  = (x < 6) || (y < 6); // true
+const logicalNot = !logicalAnd;        // true
+```
+
+#### Logical Operator with non-boolean values
 
 In JavaScript, each value has a type and an inherent **Boolean value**, generally known as either truthy or falsy. Some of the rules that determine how non-Boolean values are translated into true or false values are a little bizarre. Understanding the concepts and their effect on comparison helps when debugging JavaScript applications.
 
@@ -417,6 +477,23 @@ Everything else is **truthy**. That includes:
 - `{}` (an empty object)
 - `function(){}` (an “empty” function)
 
+Here's an example,
+
+```
+let userColor; // undefined
+let defaultColor = 'red';
+let selectedColor = userColor || defaultColor;
+
+console.log(selectedColor); // red
+
+userColor = 'blue'; // defined
+selectedColor = userColor || defaultColor;
+
+console.log(selectedColor); // blue
+```
+
+It checks whether userColor is defined, and uses it in that case. If the userColor is not defined, it will use defaultColor.
+
 #### Short-circuiting
 
 ```
@@ -425,36 +502,66 @@ console.log(false || 1 || 2); // 1
 
 JavaScript Intrepreter only checks the expression til `1` and all the other `||` are ignored completely.
 
-Here's an example,
-
-```
-let userColor = 'blue';
-let defaultColor = 'red';
-let selectedColor = userColor || defaultColor;
-console.log(selectedColor); // blue
-```
-
-It checks whether userColor is defined, and uses it in that case. If the userColor is not defined, it will use defaultColor as shown below.
-
-```
-let userColor = undefined;
-let defaultColor = 'red';
-let selectedColor = userColor || defaultColor;
-console.log(selectedColor); // red
-```
-
 ---
 
 ### Bitwise Operators
 
+Computers store numbers in the binary format which is a combination of `0`'s and `1`'s. Every single instruction you write in the programming language is converted into binary format that the computer understands.
+
+There are two types of Bitwise Operators. They are:
+
+1. Bitwise OR
+2. Bitwise AND
+
+Here below you can see the number `1` and `2` is represented in the binary format
+
 ```
 1 = 00000001
 2 = 00000010
-R = 00000011
-A = 00000000
-Bitwise OR: R = 1 | 2
-Bitwise AND: A = 1 & 2
+R = 00000011 // Bitwise OR
+A = 00000000 // Bitwise AND
+
+console.log(1 | 2); // Bitwise OR
+console.log(1 & 2); // Bitwise AND
 ```
+
+A real world application can be seen when implementing these concepts in creating an access control system.
+
+```
+// Read Permission
+// 00000100 -> 4
+// Write Permission
+// 00000010 -> 2
+// Execute Permission
+// 00000001 -> 1
+
+const readPermission = 4;
+const writePermission = 2;
+const executePermission = 1;
+
+let myPermission = 0;
+
+// Giving write and read permissions
+myPermission = myPermission | writePermission | executePermission;
+
+// Check if user have read permission
+let message = (myPermission & readPermission) ? 'Yes' : 'No'
+console.log(message) // Yes
+```
+
+---
+
+### Operator Precedence
+
+Operator precedence determines the order in which the operators in an expression are evaluated.
+
+When dealing with multiple operators and operands in a single expression, you can use parentheses for clarity. The expression inside the parentheses is evaluated first.
+
+---
+
+### Associativity of Operators
+
+If an expression has two operators with similar precedence, the expression is evaluated according to its associativity (either left to right, or right to left).
 
 ---
 
@@ -476,7 +583,7 @@ Bitwise AND: A = 1 & 2
 - while
   - index variable is defined before while statement.
   - condition is evaluated first.
-  - statements are executed only if condition is satisfied.
+  - statements are executed only if the condition is satisfied.
   - statements can be executed any number of times including zero.
 - do...while
   - index variable is defined before while statement.
