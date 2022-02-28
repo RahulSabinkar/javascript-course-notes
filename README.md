@@ -28,7 +28,12 @@
   - [Associativity of Operators](#associativity-of-operators)
 - [Control Flow](#control-flow)
   - [Conditional Statements](#conditional-statements)
-  - [Loops Statements](#loops-statements)
+  - [Loop Statements](#loop-statements)
+    - [for...in](#forin)
+    - [for...of](#forof)
+  - [Break and Continue](#break-and-continue)
+    - [break](#break)
+    - [continue](#continue)
 
 ---
 
@@ -95,8 +100,6 @@ Best Practice:
 - use camel-toe notation (Ex: myFirstName).
 - declare/initialise each variable on a single line.
 
----
-
 ### Constants
 
 In a real-world application, there are situations when we don't want the value of a variable to change. Otherwise, it's gonna create all kinds of bugs in our application.
@@ -104,8 +107,6 @@ In a real-world application, there are situations when we don't want the value o
 In those situations, when we don't want our variables to change after initialisation, we use `const` instead of `let`.
 
 The value of a variable can change, but the value of a constant cannot change.
-
----
 
 ### console.log()
 
@@ -116,8 +117,6 @@ let answer = 5 + 20;
 console.log('Sum:', answer); // With a comma
 console.log('Sum: ' + answer); // With concantation
 ```
-
----
 
 ### Primitive/Value Types
 
@@ -146,8 +145,6 @@ typeof name;               // Outputs Type of Variable
 ```
 
 Unlike other programming languages, there are no two kinds of numbers like integers and floating points. All numbers come under the type of **number**.
-
----
 
 ### Reference Types
 
@@ -207,8 +204,6 @@ person[selection] = 'Mary';
 
 With the code above, we can access that property using the Bracket Notation in a **Dynamic** way.
 
----
-
 #### Arrays
 
 Array is a data structure that we used to represent a list of items (objects).
@@ -246,8 +241,6 @@ Whenever we declare an array, that array will automatically receive certain prop
 ```
 numberOfSelectedColors = selectedColors.length;
 ```
-
----
 
 #### Functions
 
@@ -298,8 +291,6 @@ Here are the different types of Operators in JavaScript:
 4. Logical
 5. Bitwise
 
----
-
 ### Arithmetic Operators
 
 Arithmetic Operators are used to perform **arithmetic calculations**.
@@ -339,8 +330,6 @@ console.log(x);   // 9
 
 Meanwhile `++x` increments it first and then returns the changed variable.
 
----
-
 ### Assignment Operators
 
 Assignment operators are used to **assign** values to variables. For example,
@@ -362,8 +351,6 @@ Here's a list of commonly used assignment operators:
 | `/=`     | Division Assignment       | `a /= 2; // a = a / 2` |
 | `%=`     | Remainder Assignment      | `a %= 2; // a = a % 2` |
 | `**=`    | Exponentiation Assignment | `a **= 2; // a = a**2` |
-
----
 
 ### Comparison Operators
 
@@ -401,8 +388,6 @@ console.log('1' == 1);  // true
 console.log('1' != 1);  // false
 ```
 
----
-
 ### Ternary Operator
 
 A ternary operator evaluates a condition and executes a block of code based on the condition.
@@ -429,8 +414,6 @@ let studentMarks = 70;
 let evaluation = studentMarks > 60 ? 'pass' : 'fail';
 console.log(evaluation); // pass
 ```
-
----
 
 ### Logical Operators
 
@@ -502,8 +485,6 @@ console.log(false || 1 || 2); // 1
 
 JavaScript Intrepreter only checks the expression til `1` and all the other `||` are ignored completely.
 
----
-
 ### Bitwise Operators
 
 Computers store numbers in the binary format which is a combination of `0`'s and `1`'s. Every single instruction you write in the programming language is converted into binary format that the computer understands.
@@ -549,15 +530,11 @@ let message = (myPermission & readPermission) ? 'Yes' : 'No'
 console.log(message) // Yes
 ```
 
----
-
 ### Operator Precedence
 
 Operator precedence determines the order in which the operators in an expression are evaluated.
 
 When dealing with multiple operators and operands in a single expression, you can use parentheses for clarity. The expression inside the parentheses is evaluated first.
-
----
 
 ### Associativity of Operators
 
@@ -574,27 +551,103 @@ If an expression has two operators with similar precedence, the expression is ev
 - switch...case
   - only used when dealing with a single variable.
 
-### Loops Statements
+### Loop Statements
 
-**Common:**
+We have three types of loops that are common with many other programming languages. They are:
 
-- for
-  - index variable is defined inside for() initialisation section.
-- while
-  - index variable is defined before while statement.
-  - condition is evaluated first.
-  - statements are executed only if the condition is satisfied.
-  - statements can be executed any number of times including zero.
-- do...while
-  - index variable is defined before while statement.
-  - condition is evaluated last.
-  - an iteration of statement is executed first, then condition is checked
-  - statements are executed atleast once.
-  - not used a lot in real life scenarios.
+1. for
+   - index variable is defined inside for() initialisation section.
+2. while
+   - index variable is defined before while statement.
+   - condition is evaluated first.
+   - statements are executed only if the condition is satisfied.
+   - statements can be executed any number of times including zero.
+3. do...while
+   - index variable is defined before while statement.
+   - condition is evaluated last.
+   - an iteration of statement is executed first, then condition is checked
+   - statements are executed atleast once.
+   - not used a lot in real life scenarios.
 
-**New:**
+In JavaScript, we have two more types of loops. They are:
 
-- For...in
-- For...of
+1. for...in
+2. for...of
+
+#### for...in
+
+We use for...in loop to iterate over the **properties** of an object.
+
+```
+// Object with two properties
+const person = {
+    name: 'Rahul',
+    age: 22
+};
+
+// We use Bracket Notation to access object
+// property values dynamically
+for (let key in person) {
+    console.log(key, person[key]);
+}
+
+// Array with three elements
+const colors = [ 'red', 'green', 'blue'];
+
+// Bracket Notation to access those elements
+for (let index in colors) {
+    console.log(index, colors[index]);
+}
+```
+
+Starting from ES6, even though it is possible to use for...in loop to iterate over the index of an array, it is not recommended as best practice. Ideal way of accessing array elements is through for...of loop.
+
+#### for...of
+
+We use for...of loop to iterate over the elements or items of an array.
+
+```
+// Array creation with three elements
+const colors = [ 'red', 'green', 'blue'];
+
+// Accessing array elements
+for (let color of colors) {
+    console.log(color);
+}
+```
+
+### Break and Continue
+
+There are two keywords we can use that can change how the loop behaves.
+
+#### break
+
+We use the `break` keyword to break or jump out of an iteration in a loop. For example,
+
+```
+// To print numbers til 4
+for (let i=0; i <= 10; i++) {
+    if (i === 5)
+        break;
+    console.log(i);
+}
+```
+
+#### continue
+
+We use `continue` keyword to skip an interation in a loop. For example,
+
+```
+// To print odd numbers til 10
+for (let i=0; i <= 10; i++) {
+    if (i % 2 === 0)
+        continue;
+    console.log(i);
+}
+```
+
+In real-world applications, we don't really use the keyword `continue` that often. It's one of those legacy things in the JavaScript language.
+
+It's not considered a recommended way of writing code because it leads to a lot of noise in the code. In other words, it's an ugly way of writing code.
 
 ---
